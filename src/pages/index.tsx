@@ -1,3 +1,7 @@
+import { FormEventHandler, useState } from 'react'
+
+import { useRouter } from 'next/router'
+
 import { PageLayout } from '~/components/layout'
 import { getLatestMovies } from '~/services/movie'
 
@@ -15,6 +19,14 @@ export const getServerSideProps = async () => {
 }
 
 const Home: NextPage<HomeProps> = props => {
+  const [query, setQuery] = useState<string>('')
+  const router = useRouter()
+
+  const handleSubmit: FormEventHandler = event => {
+    event.preventDefault()
+    router.push(`/search?q=${query}`)
+  }
+
   return (
     <PageLayout title="Movie App">
       <section className="p-2 bg-white md:p-4 lg:p-8 xl:p-16">
@@ -22,14 +34,16 @@ const Home: NextPage<HomeProps> = props => {
           <h2 className="mb-8 text-2xl font-bold text-center text-slate-800 font-heading">
             Search Movies
           </h2>
-          <form className="flex items-center gap-4">
+          <form onSubmit={handleSubmit} className="flex items-center gap-4">
             <input
               className="w-full px-8 py-4 rounded-full bg-slate-50"
               type="text"
+              name="query"
+              onChange={e => setQuery(e.target.value)}
               placeholder="Search..."
             />
             <input
-              className="px-8 py-4 text-white rounded-full bg-rose-500 hover:bg-rose-700"
+              className="px-8 py-4 text-white rounded-full cursor-pointer bg-rose-500 hover:bg-rose-700"
               type="submit"
               value="Search"
             />

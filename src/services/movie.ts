@@ -19,3 +19,9 @@ export const getAllMovies = async (): Promise<Movie[]> => {
   const movies = dummy.data
   return movies
 }
+
+export const searchMovie = async (query: string): Promise<Movie[] | null> => {
+  console.log('Your query is', query)
+  const movies = dummy.data.slice(0, 5)
+  return movies
+}
