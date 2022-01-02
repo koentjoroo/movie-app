@@ -1,8 +1,9 @@
+import { ReactNode } from 'react'
+
 import Head from 'next/head'
 
-import { ReactNode } from "react"
 import { Footer } from './footer'
-import { Navbar } from "./navbar"
+import { Navbar } from './navbar'
 
 export type LayoutProps = {
   children: ReactNode
@@ -10,15 +11,14 @@ export type LayoutProps = {
 }
 
 export const PageLayout = (props: LayoutProps) => {
-
   return (
     <>
-    <Head>
-      <title>{props.title}</title>
-    </Head>
-    <Navbar />
-    {props.children}
-    <Footer />
+      <Head>
+        <title>{props.title}</title>
+      </Head>
+      <Navbar />
+      {props.children}
+      <Footer />
     </>
   )
 }

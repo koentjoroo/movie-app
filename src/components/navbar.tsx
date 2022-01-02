@@ -17,7 +17,7 @@ export const Navbar = () => {
           Movie App
         </span>
         <ul className="flex items-center gap-8">
-          {links.map((link) => {
+          {links.map(link => {
             const active = asPath(link.href)
             const classes = active
               ? 'font-bold'
@@ -32,13 +32,6 @@ export const Navbar = () => {
             )
           })}
         </ul>
-        <form>
-          <input
-            className="px-4 py-2 transition-colors rounded-full placeholder:text-inherit bg-white/10 focus:bg-white/20"
-            type="text"
-            placeholder="Search..."
-          />
-        </form>
       </div>
     </nav>
   )

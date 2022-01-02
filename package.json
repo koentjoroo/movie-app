@@ -10,7 +10,8 @@
   "prettier": {
     "semi": false,
     "quoteProps": "consistent",
-    "singleQuote": true
+    "singleQuote": true,
+    "arrowParens": "avoid"
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.1",
