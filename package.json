@@ -11,7 +11,8 @@
     "semi": false,
     "quoteProps": "consistent",
     "singleQuote": true,
-    "arrowParens": "avoid"
+    "arrowParens": "avoid",
+    "bracketSameLine": true
   },
   "dependencies": {
     "@fontsource/inter": "^4.5.1",

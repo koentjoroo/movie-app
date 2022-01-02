@@ -1,25 +1,15 @@
-import type { NextPage } from 'next'
-
 import { PageLayout } from '~/components/layout'
+import { getLatestMovies } from '~/services/movie'
 
-import dummy from '~/dummy.json'
+import type { NextPage } from 'next'
+import type { Movie } from '~/services/movie'
 
 type HomeProps = {
   movies: Movie[]
 }
 
-type Movie = {
-  title: string
-  genre: string[]
-  rating?: string
-  duration: string
-  quality: string
-  trailer?: string
-  watch?: string
-}
-
 export const getServerSideProps = async () => {
-  const movies: Movie[] = dummy.data.slice(0, 10)
+  const movies = await getLatestMovies()
 
   return { props: { movies } }
 }
@@ -64,8 +54,7 @@ const Home: NextPage<HomeProps> = props => {
                 {movie.genre.map(name => (
                   <li
                     key={name}
-                    className="px-3 py-2 text-xs transition-colors rounded-full cursor-pointer bg-rose-100 hover:bg-rose-200 text-rose-500 hover:text-rose-700"
-                  >
+                    className="px-3 py-2 text-xs transition-colors rounded-full cursor-pointer bg-rose-100 hover:bg-rose-200 text-rose-500 hover:text-rose-700">
                     {name}
                   </li>
                 ))}
@@ -73,14 +62,12 @@ const Home: NextPage<HomeProps> = props => {
               <div className="flex items-center justify-center gap-4">
                 <a
                   className="text-xs font-bold uppercase transition-colors cursor-pointer text-rose-500 hover:text-rose-700"
-                  href={movie.trailer}
-                >
+                  href={movie.trailer}>
                   Check Trailer
                 </a>
                 <a
                   className="p-2 text-xs font-bold uppercase transition-colors rounded-md bg-rose-500 text-rose-50 hover:bg-rose-700 hover:text-white"
-                  href={movie.watch}
-                >
+                  href={movie.watch}>
                   Watch Movie
                 </a>
               </div>
