@@ -33,7 +33,9 @@ export const MovieList = (props: MovieListProps) => {
             </span>
             <span className="flex flex-wrap items-center gap-2 mt-2">
               {movie.genre.map(name => (
-                <span className="px-2 py-1 text-xs rounded-full text-rose-500 bg-rose-100">
+                <span
+                  key={name}
+                  className="px-2 py-1 text-xs rounded-full text-rose-500 bg-rose-100">
                   {name}
                 </span>
               ))}
@@ -67,12 +69,14 @@ export const MovieList = (props: MovieListProps) => {
               <a
                 href={movie.trailer}
                 target="_blank"
+                rel="noreferrer"
                 className="p-2 text-xs font-bold uppercase transition-colors bg-white border rounded-md cursor-pointer text-rose-500 hover:text-rose-700 border-rose-500">
                 Check Trailer
               </a>
               <a
                 href={movie.watch}
                 target="_blank"
+                rel="noreferrer"
                 className="p-2 text-xs font-bold text-white uppercase transition-colors rounded-md cursor-pointer bg-rose-500 hover:bg-rose-700">
                 Watch Movie
               </a>

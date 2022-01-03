@@ -26,7 +26,7 @@ const SearchMovies: NextPage<SearchMoviesProps> = props => {
     return (
       <PageLayout title="Whoops! - Search Movie">
         <div className="container p-8 mx-auto text-center text-slate-800">
-          <p>Can't find any single movie for you</p>
+          <p>Can not find any single movie for you</p>
           <p>Either no query was entered or no movie related to the query</p>
         </div>
       </PageLayout>

@@ -56,7 +56,9 @@ const Home: NextPage<HomeProps> = props => {
         </h2>
         <div className="container flex flex-wrap justify-center gap-4 mx-auto">
           {props.movies.map(movie => (
-            <div className="flex flex-col items-center flex-grow p-2 bg-white border rounded-md lg:p-4 border-slate-300">
+            <div
+              key={movie.title}
+              className="flex flex-col items-center flex-grow p-2 bg-white border rounded-md lg:p-4 border-slate-300">
               <h3 className="text-center text-slate-800 font-heading">
                 {movie.title}
               </h3>
